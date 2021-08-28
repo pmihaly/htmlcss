@@ -1,0 +1,139 @@
+<head></head>
+
+<div class="container-1">
+  <div class="box-1">
+    <h3>Box One</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="box-2">
+    <h3>Box Two</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="box-3">
+    <h3>Box Three</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+</div>
+
+<div class="container-2">
+  <div class="container-2-box">
+    <h3>Box Four</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-2-box">
+    <h3>Box Five</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-2-box">
+    <h3>Box Six</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+</div>
+
+<div class="container-3">
+  <div class="container-3-box">
+    <h3>Box Seven</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-3-box">
+    <h3>Box Eight</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-3-box">
+    <h3>Box Nine</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-3-box">
+    <h3>Box Eleven</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+  <div class="container-3-box">
+    <h3>Box Twelve</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, rem.
+    </p>
+  </div>
+</div>
+
+<style>
+  .container-1 div,
+  .container-2 div,
+  .container-3 div {
+    border: 1px #ccc solid;
+    padding: 10px;
+  }
+
+  .box-1 {
+    flex: 3; /* legyen háromszor akkora, mint a többi */
+  }
+
+  .box-2 {
+    flex: 1;
+    order: 3; /* legyen a harmadik elem pozícióján */
+  }
+
+  .box-3 {
+    flex: 1;
+    order: 2; /* legyen a második elem pozícióján (nem kötelező) */
+  }
+
+  .container-2-box {
+    flex-basis: 20%; /* ugyanaz, mintha width: 20% lenne */
+  }
+  .container-3-box {
+    flex-basis: 12%;
+  }
+
+  /* flex csúnyán néz ki keskeny képernyőkön, ha mobile first módon fejlesztesz, flex definíciókat rakd media querybe így: */
+  @media (min-width: 768px) {
+    .container-1 {
+      display: flex;
+
+      /* align-items: stretch; - default, húzza ki a kicsit a nagyhoz képest */
+      /* align-items: center; - egy elem legyen a tényleges mérete, minden elem közepe ugyanabban a vonalban legyen */
+      /* align-items: flex-start; - egy elem vegye fel a tényleges magasságát, ne igazodjon a legmagasabbhoz */
+      /* align-items: flex-end; - ugyanaz, csak alulra igazodjon a különböző magasságával */
+
+      /* flex-direction: column; - maradjon oszlopos az elrendezés, ne csináljon sort */
+    }
+
+    .container-2 {
+      display: flex;
+
+      justify-content: center;
+      /* justify-content: flex-start; - default, elemek balra, üres rész jobbra */
+      /* justify-content: flex-end; - elemek jobbra, üres rész balra */
+      /* justify-content: center; - az elemek elé és utána rakja az üres részt, elemeket középre rakva */
+      /* justify-content: space-between; - üres rész az elemek közé, előtte, utána ne legyen üres rész */
+      /* justify-content: space-around; - üres rész az elemek közé, előtte, utána legyen üres rész */
+      /* justify-content: space-evenly; - üres rész az elemek közé, előtte, utána legyen üres rész, ami egyenletesen eloszlik mindenhol */
+    }
+  }
+
+  /* most a lényeg, az, hogy flexet hogyan jelenítjük meg, ha nem fér ki */
+  .container-3 {
+    display: flex;
+    flex-wrap: wrap; /* ha nem fér el az utolsó elem a képernyőn, rakjuk egy új sorba */
+    justify-content: space-between;
+  }
+</style>
