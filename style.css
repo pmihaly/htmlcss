@@ -43,7 +43,7 @@
 }
 
 :root::-webkit-scrollbar-thumb {
-  background: var(--dark-sienna);
+  background: var(--rosewood);
   border-radius: 10px;
 }
 
@@ -124,7 +124,7 @@ a {
 
 header {
   padding-left: 5rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 header * {
@@ -151,7 +151,7 @@ header h2 {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  z-index: 2;
+  z-index: 1;
   position: relative;
 }
 
