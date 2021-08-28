@@ -1,0 +1,190 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;800&display=swap");
+:root {
+  --primary-color: white;
+  --secondary-color: #d00000;
+
+  --background-color: #03071e;
+  --background-color-alpha: rgba(3, 7, 30, 0.8);
+
+  --dark-sienna: #370617;
+  --rosewood: #6a040f;
+  --dark-red: #9d0208;
+  --secondary-color: #d00000;
+  --vermilion: #dc2f02;
+  --persimmon: #e85d04;
+  --carrot-orange: #f48c06;
+  --orange-web: #faa307;
+  --selective-yellow: #ffba08;
+
+  --gradient: linear-gradient(
+    90deg,
+    #9d0208ff,
+    #d00000ff,
+    #dc2f02ff,
+    #e85d04ff,
+    #f48c06ff,
+    #faa307ff,
+    #ffba08ff
+  );
+
+  --transition-speed: 0.2s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 400;
+}
+
+:root::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+:root::-webkit-scrollbar-thumb {
+  background: var(--dark-sienna);
+  border-radius: 10px;
+}
+
+:root::-webkit-scrollbar-track {
+  background: var(--background-color);
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: black;
+  color: var(--primary-color);
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn {
+  background-image: var(--gradient);
+}
+.btn {
+  font-weight: 800;
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  box-shadow: 1rem 1rem 0.5rem black;
+  transition: var(--transition-speed);
+}
+
+.btn:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0rem 0rem 0rem black;
+}
+
+.hero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero::after {
+  position: relative;
+}
+
+.hero img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='30' height='30' patternTransform='scale(1) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='hsla(231, 82%, 6%, 0.85)'/><path d='M3.25 10h13.5M10 3.25v13.5' transform='translate(5,0)' stroke-linecap='square' stroke-width='1' stroke='hsla(231, 82%, 6%, 1)' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+  z-index: 1;
+}
+
+header {
+  padding-left: 5rem;
+  z-index: 1;
+}
+
+header * {
+  background: var(--gradient);
+  text-shadow: none;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+header h1 {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+header h2 {
+  font-size: 2rem;
+}
+
+.spacer {
+  height: 125vh;
+  aspect-ratio: 960/300;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 2;
+  position: relative;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 25vh;
+  padding: 100px 20vw;
+}
+
+section h3 {
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 700;
+}
+
+section .section-action {
+  margin-top: 2rem;
+}
+
+.section1-divider {
+  background-image: url("./layered-waves-haikei.svg");
+}
+
+.section1 {
+  background-color: var(--dark-sienna);
+}
+
+@media screen and (min-width: 768px) {
+  header h1 {
+    font-size: 5rem;
+    font-weight: 800;
+  }
+}
