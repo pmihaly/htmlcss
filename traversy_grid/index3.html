@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grid</title>
+    <style>
+        .wrapper > div {
+            background: lightgray;
+            padding: 1em;
+        }
+
+        .wrapper > div:nth-child(odd) {
+            background: #ddd;
+        }
+
+        .wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-auto-rows: minmax(100px, auto);
+            gap: 1em;
+
+            /* az elemet az oszlopának elejéhez (start) / közepéhez (center) / végéhez (end) illeszti (default=stretch) */
+            justify-items: stretch;
+
+            /* az elemet az sorának tetejéhez (start) / közepéhez (center) / aljához (end) illeszti (default=stretch) */
+            align-items: stretch;
+        }
+
+        .box-1 {
+            /* ezt az elemet rakd a sor teteje alá */
+            /* align-self: start; */
+
+            /* ez az elem foglalja el ennek a sornak az egyes és kettes elemének helyét */ 
+            grid-column: 1/3;
+            
+            /* ez az elem foglalja el ennek az oszlopnak az egyes és kettes sorjának helyét */ 
+            grid-row: 1/3;
+        }
+
+        .box-2 {
+            /* ezt az elemet rakd a sor aljára */
+            /* align-self: end; */
+
+            /* marad a helyén */
+            grid-column: 3;
+
+            /* magassága legyen akkora, mint a box-1 */
+            grid-row: 1/3;
+
+        }
+
+        .box-3 {
+            /* ezt az elemet rakd az oszlop közepére */
+            /* justify-self: center; */
+
+            grid-column: 2/4;
+            grid-row: 3;
+        }
+
+        .box-4 {
+            /* ezt az elemet húzd ki (default) */
+            /* justify-self: stretch; */
+
+            grid-column: 1;
+            grid-row: 2/4; /* takarja a box-1-et */
+            box-shadow: 50px 10px 50px rgba(0, 0, 0, 0.1);
+
+            border-radius: 0 20px;
+            border: 1px solid gray;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="wrapper">
+
+        <div class="box box-1">Box 1</div>
+        <div class="box box-2">Box 2</div>
+        <div class="box box-3">Box 3</div>
+        <div class="box box-4">Box 4</div>
+        <div class="box box-5">Box 5</div>
+
+  </body>
+</html>

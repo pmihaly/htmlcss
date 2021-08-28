@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Grids</title>
+
+    <style>
+      .wrapper > div {
+        background: lightgray;
+        padding: 1em;
+      }
+
+      .wrapper > div:nth-child(odd) {
+        background: #ddd;
+      }
+
+      .wrapper {
+        display: grid; /* 🍞 and the 🧈 */
+
+        /* hány oszlop és szélességben hogyan aránylanak egymáshoz az oszlopok? */
+        /* default: egy oszlop, megadhatod pixelben, százalékkal (70% 30%), vagy aránypárral (7fr 3fr)*/
+        grid-template-columns: 7fr 3fr;
+
+        gap: 1em; /* cella választék */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
+        commodi quibusdam nostrum optio vero eius consequuntur accusantium,
+        dolores a amet voluptatem, ex et deserunt qui ipsam impedit rem
+        necessitatibus aliquid iste perferendis adipisci, blanditiis accusamus!
+        Ducimus dolor fugit doloremque atque exercitationem iste unde ipsum
+        vitae similique dolorum iusto ea deserunt, eum mollitia? Et, minus eius.
+        Assumenda magni quaerat, fuga pariatur ab nulla nemo deserunt velit
+        dolore architecto quam consectetur explicabo sapiente a eaque sit,
+        reiciendis provident eius inventore asperiores voluptates!
+      </div>
+      <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus magnam
+        similique, odio rerum sit animi perspiciatis totam repudiandae,
+        assumenda inventore voluptatum aliquid. Voluptas, nulla accusamus
+        voluptatem quisquam corporis voluptatum autem.
+      </div>
+      <div>Heló</div>
+      <div>Viszlát</div>
+    </div>
+  </body>
+</html>
