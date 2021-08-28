@@ -18,13 +18,13 @@
 
   --gradient: linear-gradient(
     90deg,
-    #9d0208ff,
-    #d00000ff,
-    #dc2f02ff,
-    #e85d04ff,
-    #f48c06ff,
-    #faa307ff,
-    #ffba08ff
+    var(--dark-red),
+    var(--secondary-color),
+    var(--vermilion),
+    var(--persimmon),
+    var(--carrot-orange),
+    var(--orange-web),
+    var(--selective-yellow)
   );
 
   --transition-speed: 0.2s;
