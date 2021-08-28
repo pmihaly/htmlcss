@@ -1,0 +1,410 @@
+/* 
+    CSS fájl struktúra:
+        1. font import
+        2. variables (custom properties)
+        2. * {margin: 0; padding: 0; box-sizing: border-box;}
+        3. html, body {font-size, font-family, color, background-color, ...}
+        4. elemek redefiniálása (h1, p, a, ...)
+        5. utility classok (.navigation, .btn, ...)
+        6. media query - nagy képernyőn hogy nézzen ki az oldal
+*/
+
+@import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
+
+:root {
+  --primary-color: #f60f20;
+  --secondary-color: #1b206e;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* a padding ne szélesítse az elemet */
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  color: black;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+p {
+  /* margin: 20px 0 10px 0; - top right bottom left */
+  margin: 20px 0 10px; /* top, right/left, bottom */
+  /* rem: root (html) elem font-size értékének (default: 16px) szorzója */
+  font-size: 1.1rem;
+  /* em: szülő elem font-size értékének szorzója*/
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
+  padding: 100px;
+  margin-top: 60px;
+}
+
+section.home {
+  flex-direction: row;
+  margin-top: 0;
+}
+
+.toggle {
+  position: fixed; /* görgetéstől függetlenül mindig maradjon egy helyben az oldalon */
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: var(--primary-color) url(../images/menu.png);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.toggle.active {
+  background: var(--primary-color) url(../images/close.png);
+  background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.navigation {
+  position: fixed;
+  top: 0;
+  left: 100%; /* kinyomjuk a képernyőből, hogy ne látszódjon */
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  z-index: 15;
+  display: flex;
+  justify-content: center; /* gyermek elemeit horizontálisan középre hozza */
+  align-items: center; /* gyermek elemeit vertikálisan középre hozza */
+}
+
+.navigation.active {
+  left: 0;
+}
+
+.navigation ul {
+  position: relative;
+}
+
+.navigation ul li {
+  position: relative;
+  list-style: none;
+  text-align: center;
+}
+
+.navigation ul li a {
+  font-size: 2.2rem;
+  color: black;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navigation ul li a:hover {
+  color: var(--primary-color);
+}
+
+.navigation .social-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navigation .social-bar a {
+  display: inline-block;
+  transform: scale(0.5);
+}
+
+.navigation .email-icon {
+  position: absolute;
+  bottom: 20px;
+  transform: scale(0.5);
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block; /* linkek alapból inline-ok, margin nem látszódna */
+  background: var(--primary-color);
+  color: white;
+  text-decoration: none;
+  padding: 10px 30px; /* top/bottom left/right */
+  margin: 20px 0;
+  border: 0;
+}
+
+.btn:hover {
+  transform: scale(0.98);
+}
+
+.logo {
+  position: absolute; /* pontosan oda rakja az elemet, ahova mondjuk */
+  top: 30px; /* felülről legyen 30 pixel üres tér */
+  left: 100px; /* balról legyen 100 pixel üres tér */
+  font-size: 2rem;
+  font-weight: 700;
+  z-index: 20; /* ne takarja ki semmi (pl fullscreen menü) a logót, minél nagyobb, annál közelebb van a képernyőhőz */
+}
+
+.home-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+}
+
+.home-img {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  height: 110%;
+}
+
+/* SERVICES PAGE */
+
+.services {
+  margin-top: 40px;
+  display: grid; /* gyermekeit táblázatba rendezze lista helyett */
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /* egy sor három egyenlő szélességű elemet tartalmazzon */
+  gap: 40px; /* elemek között 40px lyuk legyen */
+  text-align: center;
+}
+
+.services .service {
+  padding: 30px;
+  transition: box-shadow 200ms; /* árnyék ne ugorjon, hanem legyen árnyékos */
+  border-radius: 0 25px; /* lekerekített sarkok */
+}
+
+.services .service:hover {
+  box-shadow: 0 80px 50px rgba(0, 0, 0, 0.1); /* offset-x, offset-y, árnyék spread radius, szín (r,g,b,alpha) */
+}
+
+.services .service h2 {
+  font-size: 24px;
+  font-weight: 500;
+  margin-top: 20px;
+  color: var(--secondary-color);
+}
+
+.services .service .icon img {
+  max-width: 100px;
+}
+
+/* WORK PAGE */
+
+.portfolio {
+  display: flex; /* flex-direction: row */
+  flex-wrap: wrap; /* annyi oszlopos a 'grid', amennyi kifér */
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.portfolio .item {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 30px;
+}
+
+.portfolio * {
+  border-radius: 25px 0;
+  transition: 0.2s;
+}
+
+.portfolio .item img {
+  width: 100%;
+  height: 100%;
+}
+
+.portfolio .item .action {
+  position: absolute; /* szülő elem position: relative, úgyhogy nem az egész weboldalra értendő az abszolút */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+}
+
+.portfolio .item .action a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 5px 15px;
+}
+
+.portfolio .item:hover {
+  box-shadow: 0 40px 50px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio .item:hover .action {
+  opacity: 1;
+}
+
+/* CONTACT */
+
+.contact {
+  position: relative;
+  width: 100%;
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between; /* üres teret az elemek közé rak, centernél elemek elé és után*/
+  align-items: flex-start; /* rakja verikálistan felülre az elemeket */
+}
+
+.contact-form {
+  position: relative;
+  background: #f9f9f9;
+  width: calc(100% - 400px);
+  padding: 60px 40px 20px;
+}
+
+.contact-form .row {
+  width: 100%;
+  display: flex;
+}
+
+.contact-form .input50 {
+  width: 50%;
+  margin: 0 10px;
+}
+
+.contact-form .input100 {
+  width: 100%;
+  margin: 0 10px;
+}
+
+.contact-form form {
+  width: 100%;
+}
+
+.contact-form .row input,
+.contact-form .row textarea {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: black;
+  background: transparent;
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  font-size: 1rem;
+  font-weight: 300;
+  margin: 10px 0;
+  resize: none;
+}
+
+.contact-form .row textarea {
+  height: 150px;
+}
+
+.contact-form .row input[type="submit"] {
+  background-color: var(--secondary-color);
+  color: white;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 300;
+  border: 0;
+  cursor: pointer;
+}
+
+.contact-info {
+  width: 350px;
+  background: #f9f9f9;
+  padding: 60px 40px 20px;
+}
+
+.contact-info .info-box {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+
+.contact-info .info-box .contact-icon {
+  width: 20px;
+  margin-right: 40px;
+}
+
+.contact-info .info-box .details h4 {
+  color: var(--secondary-color);
+}
+
+.contact-info .info-box .details p,
+.contact-info .info-box .details a {
+  color: black;
+}
+
+@media (max-width: 1068px) {
+  section {
+    padding: 100px 40px;
+  }
+
+  .home-img {
+    display: none;
+  }
+
+  .logo {
+    top: 10px;
+    left: 40px;
+    font-size: 1.5rem;
+  }
+
+  .navigation ul li a {
+    font-size: 2rem;
+  }
+
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .contact {
+    flex-direction: column;
+  }
+
+  .contact-form {
+    width: 100%;
+    padding: 30px 30px 20px;
+  }
+
+  .contact-form .row {
+    flex-direction: column;
+  }
+  .contact-form .input50,
+  .contact-form .input100 {
+    width: 100%;
+    margin: 0;
+  }
+
+  .contact-info {
+    width: 100%;
+    margin-top: 20px;
+    padding: 30px 30px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services {
+    grid-template-columns: 1fr;
+  }
+}
