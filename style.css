@@ -81,6 +81,11 @@ a {
   transition: var(--transition-speed);
 }
 
+.btn.btn-go::before {
+  /* https://unicodearrows.com/ */
+  content: "\21ac  ";
+}
+
 .btn:hover {
   background-position: right center; /* change the direction of the change here */
   color: #fff;
