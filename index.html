@@ -8,13 +8,14 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="hero">
+    <div class="hero rellax" data-rellax-speed="-4">
       <img
         src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallup.net%2Fwp-content%2Fuploads%2F2016%2F12%2F08%2F392095-anime-dog-Shiba_Inu.jpg&f=1&nofb=1"
         alt="Hero image"
+        class="hero-img"
       />
       <div class="overlay"></div>
-      <header>
+      <header class="rellax" data-rellax-speed="-2">
         <h1>Nagyon dizájn.</h1>
         <h2>Annyira hűha, olyan wow! ✨</h2>
       </header>
@@ -209,5 +210,10 @@
         Projekt forráskód
       </a>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/rellax@1.12.1/rellax.min.js"></script>
+    <script>
+      var rellax = new Rellax(".rellax");
+    </script>
   </body>
 </html>
